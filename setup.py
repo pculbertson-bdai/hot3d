@@ -7,7 +7,8 @@ setup(
     author="Preston Culbertson (of fork)",
     author_email="pculbertson@theaiinstitute.com",
     packages=find_packages(where="hot3d"),
-    package_dir={"hot3d": "hot3d"},
+    package_dir={"": "hot3d"},
+    py_modules=["Hot3DVisualizer, dataset_api"],
     install_requires=[
         "projectaria_tools==1.5.2",
         "requests",
