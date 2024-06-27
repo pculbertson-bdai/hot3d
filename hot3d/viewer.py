@@ -70,6 +70,18 @@ def parse_args():
         "--rrd_output_path", type=str, default=None, help=argparse.SUPPRESS
     )
 
+    parser.add_argument(
+        "--slice_start", type=int, default=None, help="start index of the slice"
+    )
+
+    parser.add_argument(
+        "--slice_end", type=int, default=None, help="end index of the slice"
+    )
+
+    parser.add_argument(
+        "--slice_step", type=int, default=None, help="step index of the slice"
+    )
+
     return parser.parse_args()
 
 
@@ -158,7 +170,7 @@ def main():
             mano_model_folder=args.mano_model_folder,
             rrd_output_path=args.rrd_output_path,
             jpeg_quality=args.jpeg_quality,
-            timestamps_slice=slice(None, None, None),
+            timestamps_slice=slice(args.slice_start, args.slice_end, args.slice_step),
             fail_on_missing_data=False,
             hand_type=args.hand_type,
         )
